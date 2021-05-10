@@ -14,7 +14,7 @@ export default function Home() {
       let { time } = await res.json();
       //setting average response time
       setAvgResponse(avgResponse >= 0 ? time : (avgResponse + time) / 2);
-      setPlus50Ms(avgResponse < 50);
+      setPlus50Ms(time > 50);
       //setting 5minute interval
       setInterval(checkResponse, 300000);
     }
